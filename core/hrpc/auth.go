@@ -1,3 +1,10 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:46
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-03 11:09:02
+ * @Description:
+ */
 package hrpc
 
 // hrpc package
@@ -5,10 +12,11 @@ package hrpc
 import (
 	"net/http"
 
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 // 校验用户是否有权限访问当前API

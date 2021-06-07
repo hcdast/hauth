@@ -1,9 +1,10 @@
 package models
 
 import (
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
+	"example-hauth/utils/logs"
+
 	"github.com/hzwy23/dbobj"
+	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type HandleLogMode struct {

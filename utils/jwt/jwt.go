@@ -1,3 +1,10 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:47
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-07 10:43:43
+ * @Description:
+ */
 package jwt
 
 import (
@@ -5,7 +12,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hzwy23/hauth/utils/logs"
+	"example-hauth/utils/logs"
+
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
@@ -18,15 +26,16 @@ type JwtClaims struct {
 }
 
 var (
-	key []byte = []byte("hzwy23@163.com-jwt")
+	key []byte = []byte("hc")
 )
 
+// 生成token
 func GenToken(user_id, domain_id, org_id string, dt int64) string {
 	fmt.Println(time.Now().Unix())
 	claims := JwtClaims{
 		&jwt.StandardClaims{
 			ExpiresAt: time.Now().Unix() + dt,
-			Issuer:    "hzwy23",
+			Issuer:    "hc",
 		},
 		user_id,
 		domain_id,
@@ -43,12 +52,13 @@ func GenToken(user_id, domain_id, org_id string, dt int64) string {
 	return ss
 }
 
+// 销毁token
 func DestoryToken() string {
 
 	claims := JwtClaims{
 		&jwt.StandardClaims{
 			ExpiresAt: int64(time.Now().Unix() - 99999),
-			Issuer:    "hzwy23",
+			Issuer:    "hc",
 		},
 		"exit",
 		"exit",
@@ -65,6 +75,7 @@ func DestoryToken() string {
 	return ss
 }
 
+// 验证token
 func CheckToken(token string) bool {
 	_, err := jwt.Parse(token, func(*jwt.Token) (interface{}, error) {
 		return key, nil
@@ -76,6 +87,7 @@ func CheckToken(token string) bool {
 	return true
 }
 
+// 解析token
 func ParseJwt(token string) (*JwtClaims, error) {
 	var jclaim = &JwtClaims{}
 	_, err := jwt.ParseWithClaims(token, jclaim, func(*jwt.Token) (interface{}, error) {

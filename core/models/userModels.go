@@ -5,11 +5,12 @@ import (
 	"net/url"
 	"strings"
 
+	"example-hauth/utils"
+	"example-hauth/utils/crypto/haes"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils"
-	"github.com/hzwy23/hauth/utils/crypto/haes"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type UserModel struct {

@@ -9,11 +9,12 @@ import (
 
 	"net/url"
 
+	"example-hauth/utils/hret"
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+
 	"github.com/astaxie/beego/context"
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 var log_buf = make(chan handleLogBuf, 40960)

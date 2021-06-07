@@ -3,12 +3,13 @@ package models
 import (
 	"database/sql"
 
+	"example-hauth/utils/hret"
+	"example-hauth/utils/i18n"
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+
 	"github.com/astaxie/beego/context"
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/i18n"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 const (

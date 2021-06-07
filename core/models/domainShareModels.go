@@ -4,10 +4,11 @@ import (
 	"errors"
 	"net/url"
 
-	"github.com/hzwy23/hauth/core/hrpc"
+	"example-hauth/core/hrpc"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type DomainShareModel struct {

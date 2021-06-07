@@ -1,7 +1,8 @@
 package service
 
 import (
-	"github.com/hzwy23/hauth/core/controllers"
+	"example-hauth/core/controllers"
+
 	"github.com/astaxie/beego"
 )
 

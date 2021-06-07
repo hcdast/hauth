@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"example-hauth/core/groupcache"
+	"example-hauth/utils/hret"
+	"example-hauth/utils/i18n"
+
 	"github.com/astaxie/beego/context"
-	"github.com/hzwy23/hauth/core/groupcache"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/i18n"
 )
 
 // swagger:operation GET / StaticFiles IndexPage

@@ -1,9 +1,16 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:46
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-03 11:10:24
+ * @Description:
+ */
 package service
 
 import (
 	"net/http"
 
-	"github.com/hzwy23/hauth/utils/jwt"
+	"example-hauth/utils/jwt"
 )
 
 const redirect = `

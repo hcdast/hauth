@@ -3,8 +3,9 @@ package models
 import (
 	"encoding/json"
 
+	"example-hauth/utils/logs"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 const redirect = `

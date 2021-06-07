@@ -3,13 +3,14 @@ package controllers
 import (
 	"html/template"
 
+	"example-hauth/core/hrpc"
+	"example-hauth/core/models"
+	"example-hauth/utils/hret"
+	"example-hauth/utils/i18n"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/astaxie/beego/context"
-	"github.com/hzwy23/hauth/core/hrpc"
-	"github.com/hzwy23/hauth/core/models"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/i18n"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type roleAndResourceController struct {

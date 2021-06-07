@@ -5,8 +5,9 @@ import (
 	"errors"
 	"net/url"
 
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
 )
 

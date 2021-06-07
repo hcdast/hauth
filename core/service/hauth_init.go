@@ -1,9 +1,17 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:46
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-04 18:21:53
+ * @Description:
+ */
 package service
 
 import (
 	"sync"
 
-	"github.com/hzwy23/hauth/utils/logs"
+	"example-hauth/utils/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 )
@@ -15,6 +23,7 @@ type RegisterFunc func()
 var regApp = make(map[string]RegisterFunc)
 var regLock = new(sync.RWMutex)
 
+// 注册服务
 func AppRegister(name string, registerFunc RegisterFunc) {
 	regLock.Lock()
 	defer regLock.Unlock()
@@ -41,6 +50,7 @@ func Bootstrap() {
 	// 注册路由信息
 	registerRouter()
 
+	// 遍历服务 并执行其中方法
 	for key, fc := range regApp {
 		logs.Info("register App, name is:", key)
 		fc()

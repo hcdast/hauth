@@ -1,11 +1,19 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:46
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-03 11:09:45
+ * @Description:
+ */
 package models
 
 import (
 	"errors"
 
-	"github.com/hzwy23/hauth/core/hrpc"
+	"example-hauth/core/hrpc"
+	"example-hauth/utils/logs"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 type PasswdModels struct {

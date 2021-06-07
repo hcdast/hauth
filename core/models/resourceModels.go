@@ -5,9 +5,10 @@ import (
 
 	"net/url"
 
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type ResourceModel struct {

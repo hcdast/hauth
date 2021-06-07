@@ -1,10 +1,12 @@
 package hrpc
 
 import (
-	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
 	"net/http"
+
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+
+	"github.com/hzwy23/dbobj"
 )
 
 // check the user wheather handle the domain

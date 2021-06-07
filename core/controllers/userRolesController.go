@@ -3,14 +3,15 @@ package controllers
 import (
 	"encoding/json"
 
-	"github.com/hzwy23/hauth/core/groupcache"
-	"github.com/hzwy23/hauth/core/hrpc"
-	"github.com/hzwy23/hauth/core/models"
+	"example-hauth/core/groupcache"
+	"example-hauth/core/hrpc"
+	"example-hauth/core/models"
+	"example-hauth/utils/hret"
+	"example-hauth/utils/i18n"
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+
 	"github.com/astaxie/beego/context"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/i18n"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 type userRolesController struct {

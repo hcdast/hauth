@@ -1,8 +1,9 @@
 package models
 
 import (
+	"example-hauth/utils/logs"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 type UserThemeModel struct {

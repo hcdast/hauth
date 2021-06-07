@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/hzwy23/hauth/utils/logs"
+	"example-hauth/utils/logs"
 )
 
 type HttpOkMsg struct {
@@ -40,6 +40,7 @@ func Json(w http.ResponseWriter, data interface{}) ([]byte, error) {
 	return ijs, err
 }
 
+// 请求错误
 func Error(w http.ResponseWriter, code int, msg string, details ...interface{}) {
 	e := HttpErrMsg{
 		Error_code:    code,
@@ -50,6 +51,7 @@ func Error(w http.ResponseWriter, code int, msg string, details ...interface{}) 
 	writHttpError(w, e)
 }
 
+// 请求成功
 func Success(w http.ResponseWriter, v interface{}) {
 	ok := HttpOkMsg{
 		Version:    "v1.0",

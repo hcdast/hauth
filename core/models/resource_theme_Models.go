@@ -1,8 +1,16 @@
+/*
+ * @Author: hc
+ * @Date: 2021-06-01 17:36:46
+ * @LastEditors: hc
+ * @LastEditTime: 2021-06-03 11:09:53
+ * @Description:
+ */
 package models
 
 import (
+	"example-hauth/utils/logs"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 type ThemeResourceModel struct {

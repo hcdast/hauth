@@ -1,14 +1,15 @@
 package controllers
 
 import (
+	"example-hauth/core/groupcache"
+	"example-hauth/core/models"
+	"example-hauth/utils/crypto/sha1"
+	"example-hauth/utils/hret"
+	"example-hauth/utils/i18n"
+	"example-hauth/utils/jwt"
+	"example-hauth/utils/logs"
+
 	"github.com/astaxie/beego/context"
-	"github.com/hzwy23/hauth/core/groupcache"
-	"github.com/hzwy23/hauth/core/models"
-	"github.com/hzwy23/hauth/utils/crypto/sha1"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/i18n"
-	"github.com/hzwy23/hauth/utils/jwt"
-	"github.com/hzwy23/hauth/utils/logs"
 )
 
 var homePageMenusModel = new(models.HomePageMenusModel)

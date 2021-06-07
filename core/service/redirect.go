@@ -7,9 +7,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hzwy23/hauth/utils/config"
-	"github.com/hzwy23/hauth/utils/hret"
-	"github.com/hzwy23/hauth/utils/logs"
+	"example-hauth/utils/config"
+	"example-hauth/utils/hret"
+	"example-hauth/utils/logs"
 )
 
 // 将80端口,重定向到443端口

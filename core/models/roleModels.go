@@ -4,10 +4,11 @@ import (
 	"errors"
 	"net/url"
 
+	"example-hauth/utils"
+	"example-hauth/utils/logs"
+	"example-hauth/utils/validator"
+
 	"github.com/hzwy23/dbobj"
-	"github.com/hzwy23/hauth/utils"
-	"github.com/hzwy23/hauth/utils/logs"
-	"github.com/hzwy23/hauth/utils/validator"
 )
 
 type RoleModel struct {
