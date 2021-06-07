@@ -1,0 +1,6 @@
+[submodule "dbobj"]
+	path = dbobj
+	url = https://github.com/hcdast/dbobj.git
+[submodule "panda"]
+	path = panda
+	url = https://github.com/hcdast/panda.git
