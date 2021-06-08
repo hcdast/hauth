@@ -2,14 +2,13 @@
  * @Author: hc
  * @Date: 2021-06-01 17:36:47
  * @LastEditors: hc
- * @LastEditTime: 2021-06-07 10:43:43
- * @Description:
+ * @LastEditTime: 2021-06-08 14:16:58
+ * @Description: 鉴权
  */
 package jwt
 
 import (
 	"errors"
-	"fmt"
 	"time"
 
 	"example-hauth/utils/logs"
@@ -31,7 +30,6 @@ var (
 
 // 生成token
 func GenToken(user_id, domain_id, org_id string, dt int64) string {
-	fmt.Println(time.Now().Unix())
 	claims := JwtClaims{
 		&jwt.StandardClaims{
 			ExpiresAt: time.Now().Unix() + dt,
@@ -54,7 +52,6 @@ func GenToken(user_id, domain_id, org_id string, dt int64) string {
 
 // 销毁token
 func DestoryToken() string {
-
 	claims := JwtClaims{
 		&jwt.StandardClaims{
 			ExpiresAt: int64(time.Now().Unix() - 99999),
@@ -81,7 +78,6 @@ func CheckToken(token string) bool {
 		return key, nil
 	})
 	if err != nil {
-		fmt.Println("parase with claims failed.", err)
 		return false
 	}
 	return true
@@ -94,7 +90,6 @@ func ParseJwt(token string) (*JwtClaims, error) {
 		return key, nil
 	})
 	if err != nil {
-		fmt.Println("parase with claims failed.", err, token)
 		return nil, errors.New("parase with claims failed.")
 	}
 	return jclaim, nil

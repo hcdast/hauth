@@ -2,7 +2,7 @@
  * @Author: hc
  * @Date: 2021-06-01 17:36:46
  * @LastEditors: hc
- * @LastEditTime: 2021-06-04 18:21:53
+ * @LastEditTime: 2021-06-08 17:11:58
  * @Description:
  */
 package service
@@ -37,14 +37,16 @@ func AppRegister(name string, registerFunc RegisterFunc) {
 func Bootstrap() {
 	// 开启消息，
 	// 将80端口的请求，重定向到443上
-	go RedictToHtpps()
+	// go RedictToHtpps()
 
+	// 插件 请求后执行
 	beego.InsertFilter("/*", beego.FinishRouter, func(ctx *context.Context) {
 		go WriteHandleLogs(ctx)
 	}, false)
 
-	beego.InsertFilter("/v1/*", beego.BeforeRouter, func(ctx *context.Context) {
-		CheckConnection(ctx.ResponseWriter, ctx.Request)
+	// 插件 请求前执行
+	beego.InsertFilter("/v1/auth/*", beego.BeforeRouter, func(ctx *context.Context) {
+		go CheckConnection(ctx.ResponseWriter, ctx.Request)
 	}, false)
 
 	// 注册路由信息

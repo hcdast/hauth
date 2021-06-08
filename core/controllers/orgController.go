@@ -562,15 +562,16 @@ func (this orgController) Upload(ctx *context.Context) {
 
 	var data []models.SysOrgInfo
 	var index = 0
-	for index  < sheet.MaxRow {
-		val, _ := sheet.Row(index)
+	for index < sheet.MaxRow {
+		val := sheet.Row(index)
 		if index > 0 {
 			var one models.SysOrgInfo
-			one.Code_number = val.GetCell(0).String()
-			one.Org_unit_desc = val.GetCell(1).String()
-			one.Domain_id = val.GetCell(3).String()
+			fmt.Println("-------------", val)
+			// one.Code_number = val.GetCell(0).String()
+			// one.Org_unit_desc = val.GetCell(1).String()
+			// one.Up_org_id = utils.JoinCode(one.Domain_id, val.GetCell(2).String())
+			// one.Domain_id = val.GetCell(3).String()
 			one.Org_unit_id = utils.JoinCode(one.Domain_id, one.Code_number)
-			one.Up_org_id = utils.JoinCode(one.Domain_id, val.GetCell(2).String())
 			one.Create_user = jclaim.UserId
 
 			if one.Org_unit_id == one.Up_org_id {

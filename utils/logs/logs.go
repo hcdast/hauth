@@ -43,7 +43,6 @@ func GetLogger() *zap.SugaredLogger {
 
 // Error logs a message at error level.
 func Error(v ...interface{}) {
-	fmt.Println(v)
 	log.Error(v...)
 }
 

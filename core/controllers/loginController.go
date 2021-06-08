@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
@@ -13,6 +12,7 @@ import (
 	"example-hauth/utils/jwt"
 	"example-hauth/utils/logs"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 )
 
@@ -46,7 +46,6 @@ func HomePage(ctx *context.Context) {
 		ctx.Redirect(302, "/")
 		return
 	}
-
 	url := indexModels.GetDefaultPage(jclaim.UserId)
 	h, err := template.ParseFiles(url)
 	if err != nil {
@@ -97,6 +96,7 @@ func LoginSystem(ctx *context.Context) {
 		return
 	}
 
+	// 验证域
 	domainId, err := hrpc.GetDomainId(userId)
 	if err != nil {
 		logs.Error(userId, " 用户没有指定的域", err)
@@ -104,6 +104,7 @@ func LoginSystem(ctx *context.Context) {
 		return
 	}
 
+	// 验证组织机构
 	orgid, err := indexModels.GetDefaultOrgId(userId)
 	if err != nil {
 		logs.Error(userId, " 用户没有指定机构", err)
@@ -111,9 +112,10 @@ func LoginSystem(ctx *context.Context) {
 		return
 	}
 
+	// 验证密码
 	if ok, code, cnt, rmsg := hrpc.CheckPasswd(userId, psd); ok {
 		token := jwt.GenToken(userId, domainId, orgid, 86400)
-		cookie := http.Cookie{Name: "Authorization", Value: token, Path: "/", MaxAge: 86400}
+		cookie := http.Cookie{Name: beego.AppConfig.String("sessionname"), Value: token, Path: "/", MaxAge: 86400}
 		http.SetCookie(ctx.ResponseWriter, &cookie)
 		hret.Success(ctx.ResponseWriter, i18n.Success(ctx.Request))
 	} else {

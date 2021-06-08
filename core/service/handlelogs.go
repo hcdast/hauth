@@ -29,9 +29,9 @@ type handleLogBuf struct {
 	Req_body   string `json:"req_body"`
 }
 
+// 记录请求日志
 func WriteHandleLogs(ctx *context.Context) {
 	defer hret.HttpPanic()
-
 	if strings.HasPrefix(ctx.Request.URL.Path, "/") {
 		var one handleLogBuf
 		status := ctx.ResponseWriter.Status
