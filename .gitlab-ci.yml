@@ -1,0 +1,83 @@
+# docker镜像
+image: golang:latest
+
+# 缓存
+cache:
+  # paths:
+  #   - /apt-cache
+  #   - /go/src/github.com
+  #   - /go/src/golang.org
+  #   - /go/src/google.golang.org
+  #   - /go/src/gopkg.in
+
+# 依赖服务
+services:
+  # - docker
+
+# 预设变量
+variables:
+  REPOSITORY: "huchen"
+  APP_IMAGE_NAME: "hauth"
+  APP_CONTAINER_NAME: "hauth"
+  DOCKER_NAME: "huchen"
+  DOCKER_PWD: "hcdocker"
+  DOCKER_URL: "hub.docker.com"
+
+# 执行前脚本
+before_script:
+  - export PATH=$PATH:/usr/local/go/bin
+  - export GOPROXY=https://goproxy.io
+  - export GOPATH=~/go
+  - export GOBIN=~/go/bin
+
+# 执行后脚本
+after_script:
+  - echo "after_script!"
+
+# 执行任务步骤
+stages:
+  - build
+  # - test
+  # - deploy
+
+# 构建任务
+build-job:
+  image: docker:latest
+  stage: build
+  tags:
+    - hauth
+  script:
+    - echo "This job build"
+    # - docker build -f . -t $REPOSITORY/$APP_IMAGE_NAME .
+    # - docker login -u $DOCKER_NAME -p $DOCKER_PWD $DOCKER_URL
+    # - docker push $APP_IMAGE_NAME
+    # - docker image rm $APP_IMAGE_NAME
+
+# 测试任务
+test-job:
+  stage: test
+  script:
+    - echo "This job tests something"
+
+# 代码覆盖测试
+code_coverage:
+  stage: test
+  script:
+    - make coverage
+
+# 代码覆盖测试报告
+code_coverage_report:
+  stage: test
+  script:
+    - make coverhtml
+  only:
+  - master
+
+# 部署任务
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "This job deploy something"
+    # - - if [ $(docker ps -aq --filter name=$APP_CONTAINER_NAME) ]; then docker rm -f $APP_CONTAINER_NAME;fi
+    # - docker login -u $DOCKER_NAME -p $DOCKER_PWD $DOCKER_URL
+    # - docker run -d -p 8081:80 --name $APP_CONTAINER_NAME $APP_IMAGE_NAME
